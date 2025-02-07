@@ -1,7 +1,7 @@
-#### SonarQube - Dev and Demo status
+### SonarQube - Dev and Demo status
 Environment | Dev | Demo |
---- | --- | --- | 
-Quality gate | [![Quality gate](http://54.226.188.193:9000/api/project_badges/quality_gate?project=test)](http://54.226.188.193:9000/dashboard?id=test)| [![Quality gate](https://sonarqube.bitcotapps.com/api/project_badges/quality_gate?project=rag-base)](https://sonarqube.bitcotapps.com/dashboard?id=rag-base) |
+--- | --- | --- |
+Quality gate | [![Quality_gate](http://54.226.188.193:9000/api/project_badges/quality_gate?project=test--master)](http://54.226.188.193:9000/dashboard?id=test--master) | [![Quality_gate](https://sonarqube.bitcotapps.com/api/project_badges/quality_gate?project=test--master)](https://sonarqube.bitcotapps.com/dashboard?id=test--master) |
 
 Calculator
 ---
