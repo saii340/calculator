@@ -55,7 +55,7 @@ jobs:
         export PATH="$PATH:/opt/sonar-scanner/bin"
         sonar-scanner \
           -Dsonar.projectKey=test \
-          -Dsonar.host.url=https://sonarqube.bitcotapps.com/ \
+          -Dsonar.host.url=http://54.226.188.193:9000/ \
           -Dsonar.sources=.
       env:
-        SONAR_TOKEN: sqa_8766a144f58839b028d549d54ea0b2943340fdc6
+        SONAR_TOKEN: squ_2acb5b58834576b66d70ed25f95ee70156513527
