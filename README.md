@@ -1,3 +1,8 @@
+#### SonarQube - Dev and Demo status
+Environment | Dev | Demo |
+--- | --- | --- | 
+Quality gate | [![Quality gate](https://sonarqube.bitcotapps.com/api/project_badges/quality_gate?project=rag-base--dev)](https://sonarqube.bitcotapps.com/dashboard?id=rag-base--dev)| [![Quality gate](https://sonarqube.bitcotapps.com/api/project_badges/quality_gate?project=rag-base)](https://sonarqube.bitcotapps.com/dashboard?id=rag-base) |
+
 Calculator
 ---
 <img src="Logotype primary.png" width="60%" height="60%" />
