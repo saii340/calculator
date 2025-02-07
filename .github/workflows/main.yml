@@ -1,0 +1,61 @@
+
+name: SonarQube Analysis
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+      - master
+      - main  # This will trigger the analysis on all branches (main, dev, etc.)
+  pull_request:
+    branches:
+      - dev
+      - master
+      - main  # This will trigger for all pull requests
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the code from the repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Set the project key dynamically based on the branch name
+    - name: Set Project Key
+      id: set_project_key
+      run: |
+        if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+          echo "PROJECT_KEY=test" >> $GITHUB_ENV
+        elif [ "${{ github.ref }}" = "refs/heads/master" ]; then
+          echo "PROJECT_KEY=test--master" >> $GITHUB_ENV
+        elif [ "${{ github.ref }}" = "refs/heads/staging" ]; then
+          echo "PROJECT_KEY=test--staging" >> $GITHUB_ENV
+        else
+          echo "PROJECT_KEY=test--pr" >> $GITHUB_ENV
+        fi
+
+    - name: Install SonarQube Scanner
+      run: |
+        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
+        unzip sonar-scanner-cli-4.2.0.1873-linux.zip
+        sudo mv sonar-scanner-4.2.0.1873-linux /opt/sonar-scanner
+        sudo chmod +x /opt/sonar-scanner/bin/sonar-scanner
+
+    # Test SonarQube Scanner installation
+    # - name: Test SonarQube Scanner installation
+    #   run: |
+    #     sonar-scanner --version
+
+    # Run SonarQube analysis with dynamic project key
+    - name: Run SonarQube Scanner
+      run: |
+        export PATH="$PATH:/opt/sonar-scanner/bin"
+        sonar-scanner \
+          -Dsonar.projectKey=${{ env.PROJECT_KEY }} \
+          -Dsonar.host.url=https://sonarqube.bitcotapps.com/ \
+          -Dsonar.sources=frontend
+      env:
+        SONAR_TOKEN: sqp_94e7500d06593e83a59a4c2b5a8eef890f64e7a1
