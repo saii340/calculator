@@ -54,7 +54,7 @@ jobs:
       run: |
         export PATH="$PATH:/opt/sonar-scanner/bin"
         sonar-scanner \
-          -Dsonar.projectKey=test \
+          -Dsonar.projectKey=${{ env.PROJECT_KEY }} \
           -Dsonar.host.url=http://54.226.188.193:9000/ \
           -Dsonar.sources=.
       env:
