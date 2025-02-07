@@ -56,6 +56,6 @@ jobs:
         sonar-scanner \
           -Dsonar.projectKey=${{ env.PROJECT_KEY }} \
           -Dsonar.host.url=https://sonarqube.bitcotapps.com/ \
-          -Dsonar.sources=frontend
+          -Dsonar.sources=.
       env:
-        SONAR_TOKEN: sqp_94e7500d06593e83a59a4c2b5a8eef890f64e7a1
+        SONAR_TOKEN: squ_65826083cffd5598f5e7ec277c69ea3bdbaf3bb3
